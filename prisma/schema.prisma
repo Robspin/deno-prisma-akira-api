@@ -2,14 +2,14 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
-  previewFeatures = ["deno"]
-  output = "../generated/client"
+    provider = "prisma-client-js"
+    previewFeatures = ["deno"]
+    output = "../generated/client"
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+    provider = "mysql"
+    url      = env("DATABASE_URL")
 }
 
 model Dinosaur {
@@ -23,4 +23,3 @@ model PageViews {
     pageKey         String      @unique
     views           Int
 }
-
