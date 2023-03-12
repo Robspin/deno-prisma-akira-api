@@ -15,7 +15,9 @@ datasource db {
 model BotStatus {
     id              Int         @id @default(autoincrement())
     key             String      @unique
-    state           String
+    hasPosition     Boolean
+    direction       String
+    updatedAt       DateTime    @updatedAt
 }
 
 model PageViews {

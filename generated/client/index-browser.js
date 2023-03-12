@@ -92,7 +92,9 @@ function makeEnum(x) { return x; }
 exports.Prisma.BotStatusScalarFieldEnum = makeEnum({
   id: 'id',
   key: 'key',
-  state: 'state'
+  hasPosition: 'hasPosition',
+  direction: 'direction',
+  updatedAt: 'updatedAt'
 });
 
 exports.Prisma.PageViewsScalarFieldEnum = makeEnum({

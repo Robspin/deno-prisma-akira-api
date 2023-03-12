@@ -17,7 +17,9 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
 export type BotStatus = {
   id: number
   key: string
-  state: string
+  hasPosition: boolean
+  direction: string
+  updatedAt: Date
 }
 
 /**
@@ -827,19 +829,25 @@ export namespace Prisma {
   export type BotStatusMinAggregateOutputType = {
     id: number | null
     key: string | null
-    state: string | null
+    hasPosition: boolean | null
+    direction: string | null
+    updatedAt: Date | null
   }
 
   export type BotStatusMaxAggregateOutputType = {
     id: number | null
     key: string | null
-    state: string | null
+    hasPosition: boolean | null
+    direction: string | null
+    updatedAt: Date | null
   }
 
   export type BotStatusCountAggregateOutputType = {
     id: number
     key: number
-    state: number
+    hasPosition: number
+    direction: number
+    updatedAt: number
     _all: number
   }
 
@@ -855,19 +863,25 @@ export namespace Prisma {
   export type BotStatusMinAggregateInputType = {
     id?: true
     key?: true
-    state?: true
+    hasPosition?: true
+    direction?: true
+    updatedAt?: true
   }
 
   export type BotStatusMaxAggregateInputType = {
     id?: true
     key?: true
-    state?: true
+    hasPosition?: true
+    direction?: true
+    updatedAt?: true
   }
 
   export type BotStatusCountAggregateInputType = {
     id?: true
     key?: true
-    state?: true
+    hasPosition?: true
+    direction?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -961,7 +975,9 @@ export namespace Prisma {
   export type BotStatusGroupByOutputType = {
     id: number
     key: string
-    state: string
+    hasPosition: boolean
+    direction: string
+    updatedAt: Date
     _count: BotStatusCountAggregateOutputType | null
     _avg: BotStatusAvgAggregateOutputType | null
     _sum: BotStatusSumAggregateOutputType | null
@@ -986,7 +1002,9 @@ export namespace Prisma {
   export type BotStatusSelect = {
     id?: boolean
     key?: boolean
-    state?: boolean
+    hasPosition?: boolean
+    direction?: boolean
+    updatedAt?: boolean
   }
 
 
@@ -2617,7 +2635,9 @@ export namespace Prisma {
   export const BotStatusScalarFieldEnum: {
     id: 'id',
     key: 'key',
-    state: 'state'
+    hasPosition: 'hasPosition',
+    direction: 'direction',
+    updatedAt: 'updatedAt'
   };
 
   export type BotStatusScalarFieldEnum = (typeof BotStatusScalarFieldEnum)[keyof typeof BotStatusScalarFieldEnum]
@@ -2661,13 +2681,17 @@ export namespace Prisma {
     NOT?: Enumerable<BotStatusWhereInput>
     id?: IntFilter | number
     key?: StringFilter | string
-    state?: StringFilter | string
+    hasPosition?: BoolFilter | boolean
+    direction?: StringFilter | string
+    updatedAt?: DateTimeFilter | Date | string
   }
 
   export type BotStatusOrderByWithRelationInput = {
     id?: SortOrder
     key?: SortOrder
-    state?: SortOrder
+    hasPosition?: SortOrder
+    direction?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BotStatusWhereUniqueInput = {
@@ -2678,7 +2702,9 @@ export namespace Prisma {
   export type BotStatusOrderByWithAggregationInput = {
     id?: SortOrder
     key?: SortOrder
-    state?: SortOrder
+    hasPosition?: SortOrder
+    direction?: SortOrder
+    updatedAt?: SortOrder
     _count?: BotStatusCountOrderByAggregateInput
     _avg?: BotStatusAvgOrderByAggregateInput
     _max?: BotStatusMaxOrderByAggregateInput
@@ -2692,7 +2718,9 @@ export namespace Prisma {
     NOT?: Enumerable<BotStatusScalarWhereWithAggregatesInput>
     id?: IntWithAggregatesFilter | number
     key?: StringWithAggregatesFilter | string
-    state?: StringWithAggregatesFilter | string
+    hasPosition?: BoolWithAggregatesFilter | boolean
+    direction?: StringWithAggregatesFilter | string
+    updatedAt?: DateTimeWithAggregatesFilter | Date | string
   }
 
   export type PageViewsWhereInput = {
@@ -2737,41 +2765,55 @@ export namespace Prisma {
 
   export type BotStatusCreateInput = {
     key: string
-    state: string
+    hasPosition: boolean
+    direction: string
+    updatedAt?: Date | string
   }
 
   export type BotStatusUncheckedCreateInput = {
     id?: number
     key: string
-    state: string
+    hasPosition: boolean
+    direction: string
+    updatedAt?: Date | string
   }
 
   export type BotStatusUpdateInput = {
     key?: StringFieldUpdateOperationsInput | string
-    state?: StringFieldUpdateOperationsInput | string
+    hasPosition?: BoolFieldUpdateOperationsInput | boolean
+    direction?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BotStatusUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     key?: StringFieldUpdateOperationsInput | string
-    state?: StringFieldUpdateOperationsInput | string
+    hasPosition?: BoolFieldUpdateOperationsInput | boolean
+    direction?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BotStatusCreateManyInput = {
     id?: number
     key: string
-    state: string
+    hasPosition: boolean
+    direction: string
+    updatedAt?: Date | string
   }
 
   export type BotStatusUpdateManyMutationInput = {
     key?: StringFieldUpdateOperationsInput | string
-    state?: StringFieldUpdateOperationsInput | string
+    hasPosition?: BoolFieldUpdateOperationsInput | boolean
+    direction?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BotStatusUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     key?: StringFieldUpdateOperationsInput | string
-    state?: StringFieldUpdateOperationsInput | string
+    hasPosition?: BoolFieldUpdateOperationsInput | boolean
+    direction?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PageViewsCreateInput = {
@@ -2838,10 +2880,28 @@ export namespace Prisma {
     not?: NestedStringFilter | string
   }
 
+  export type BoolFilter = {
+    equals?: boolean
+    not?: NestedBoolFilter | boolean
+  }
+
+  export type DateTimeFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeFilter | Date | string
+  }
+
   export type BotStatusCountOrderByAggregateInput = {
     id?: SortOrder
     key?: SortOrder
-    state?: SortOrder
+    hasPosition?: SortOrder
+    direction?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BotStatusAvgOrderByAggregateInput = {
@@ -2851,13 +2911,17 @@ export namespace Prisma {
   export type BotStatusMaxOrderByAggregateInput = {
     id?: SortOrder
     key?: SortOrder
-    state?: SortOrder
+    hasPosition?: SortOrder
+    direction?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BotStatusMinOrderByAggregateInput = {
     id?: SortOrder
     key?: SortOrder
-    state?: SortOrder
+    hasPosition?: SortOrder
+    direction?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BotStatusSumOrderByAggregateInput = {
@@ -2897,6 +2961,28 @@ export namespace Prisma {
     _max?: NestedStringFilter
   }
 
+  export type BoolWithAggregatesFilter = {
+    equals?: boolean
+    not?: NestedBoolWithAggregatesFilter | boolean
+    _count?: NestedIntFilter
+    _min?: NestedBoolFilter
+    _max?: NestedBoolFilter
+  }
+
+  export type DateTimeWithAggregatesFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeWithAggregatesFilter | Date | string
+    _count?: NestedIntFilter
+    _min?: NestedDateTimeFilter
+    _max?: NestedDateTimeFilter
+  }
+
   export type PageViewsCountOrderByAggregateInput = {
     id?: SortOrder
     pageKey?: SortOrder
@@ -2927,6 +3013,14 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2960,6 +3054,22 @@ export namespace Prisma {
     startsWith?: string
     endsWith?: string
     not?: NestedStringFilter | string
+  }
+
+  export type NestedBoolFilter = {
+    equals?: boolean
+    not?: NestedBoolFilter | boolean
+  }
+
+  export type NestedDateTimeFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeFilter | Date | string
   }
 
   export type NestedIntWithAggregatesFilter = {
@@ -3004,6 +3114,28 @@ export namespace Prisma {
     _count?: NestedIntFilter
     _min?: NestedStringFilter
     _max?: NestedStringFilter
+  }
+
+  export type NestedBoolWithAggregatesFilter = {
+    equals?: boolean
+    not?: NestedBoolWithAggregatesFilter | boolean
+    _count?: NestedIntFilter
+    _min?: NestedBoolFilter
+    _max?: NestedBoolFilter
+  }
+
+  export type NestedDateTimeWithAggregatesFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeWithAggregatesFilter | Date | string
+    _count?: NestedIntFilter
+    _min?: NestedDateTimeFilter
+    _max?: NestedDateTimeFilter
   }
 
 
