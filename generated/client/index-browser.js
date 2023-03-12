@@ -13,11 +13,11 @@ const Prisma = {}
 exports.Prisma = Prisma
 
 /**
- * Prisma Client JS version: 4.10.1
+ * Prisma Client JS version: 4.11.0
  * Query Engine version: aead147aa326ccb985dcfed5b065b4fdabd44b19
  */
 Prisma.prismaVersion = {
-  client: "4.10.1",
+  client: "4.11.0",
   engine: "aead147aa326ccb985dcfed5b065b4fdabd44b19"
 }
 
@@ -89,10 +89,10 @@ Prisma.NullTypes = {
 // https://github.com/microsoft/TypeScript/issues/3192#issuecomment-261720275
 function makeEnum(x) { return x; }
 
-exports.Prisma.DinosaurScalarFieldEnum = makeEnum({
+exports.Prisma.BotStatusScalarFieldEnum = makeEnum({
   id: 'id',
-  name: 'name',
-  description: 'description'
+  key: 'key',
+  state: 'state'
 });
 
 exports.Prisma.PageViewsScalarFieldEnum = makeEnum({
@@ -115,7 +115,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 
 exports.Prisma.ModelName = makeEnum({
-  Dinosaur: 'Dinosaur',
+  BotStatus: 'BotStatus',
   PageViews: 'PageViews'
 });
 

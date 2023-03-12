@@ -12,10 +12,10 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Dinosaur {
+model BotStatus {
     id              Int         @id @default(autoincrement())
-    name            String      @unique
-    description     String
+    key             String      @unique
+    state           String
 }
 
 model PageViews {

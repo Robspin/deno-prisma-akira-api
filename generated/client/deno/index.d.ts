@@ -11,13 +11,13 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
 
 
 /**
- * Model Dinosaur
+ * Model BotStatus
  * 
  */
-export type Dinosaur = {
+export type BotStatus = {
   id: number
-  name: string
-  description: string
+  key: string
+  state: string
 }
 
 /**
@@ -38,8 +38,8 @@ export type PageViews = {
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Dinosaurs
- * const dinosaurs = await prisma.dinosaur.findMany()
+ * // Fetch zero or more BotStatuses
+ * const botStatuses = await prisma.botStatus.findMany()
  * ```
  *
  * 
@@ -59,8 +59,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Dinosaurs
-   * const dinosaurs = await prisma.dinosaur.findMany()
+   * // Fetch zero or more BotStatuses
+   * const botStatuses = await prisma.botStatus.findMany()
    * ```
    *
    * 
@@ -149,14 +149,14 @@ export class PrismaClient<
   $transaction<R>(fn: (prisma: Omit<this, "$connect" | "$disconnect" | "$on" | "$transaction" | "$use">) => Promise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): Promise<R>
 
       /**
-   * `prisma.dinosaur`: Exposes CRUD operations for the **Dinosaur** model.
+   * `prisma.botStatus`: Exposes CRUD operations for the **BotStatus** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Dinosaurs
-    * const dinosaurs = await prisma.dinosaur.findMany()
+    * // Fetch zero or more BotStatuses
+    * const botStatuses = await prisma.botStatus.findMany()
     * ```
     */
-  get dinosaur(): Prisma.DinosaurDelegate<GlobalReject>;
+  get botStatus(): Prisma.BotStatusDelegate<GlobalReject>;
 
   /**
    * `prisma.pageViews`: Exposes CRUD operations for the **PageViews** model.
@@ -210,7 +210,7 @@ export namespace Prisma {
 
 
   /**
-   * Prisma Client JS version: 4.10.1
+   * Prisma Client JS version: 4.11.0
    * Query Engine version: aead147aa326ccb985dcfed5b065b4fdabd44b19
    */
   export type PrismaVersion = {
@@ -636,7 +636,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Dinosaur: 'Dinosaur',
+    BotStatus: 'BotStatus',
     PageViews: 'PageViews'
   };
 
@@ -804,353 +804,353 @@ export namespace Prisma {
    */
 
   /**
-   * Model Dinosaur
+   * Model BotStatus
    */
 
 
-  export type AggregateDinosaur = {
-    _count: DinosaurCountAggregateOutputType | null
-    _avg: DinosaurAvgAggregateOutputType | null
-    _sum: DinosaurSumAggregateOutputType | null
-    _min: DinosaurMinAggregateOutputType | null
-    _max: DinosaurMaxAggregateOutputType | null
+  export type AggregateBotStatus = {
+    _count: BotStatusCountAggregateOutputType | null
+    _avg: BotStatusAvgAggregateOutputType | null
+    _sum: BotStatusSumAggregateOutputType | null
+    _min: BotStatusMinAggregateOutputType | null
+    _max: BotStatusMaxAggregateOutputType | null
   }
 
-  export type DinosaurAvgAggregateOutputType = {
+  export type BotStatusAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type DinosaurSumAggregateOutputType = {
+  export type BotStatusSumAggregateOutputType = {
     id: number | null
   }
 
-  export type DinosaurMinAggregateOutputType = {
+  export type BotStatusMinAggregateOutputType = {
     id: number | null
-    name: string | null
-    description: string | null
+    key: string | null
+    state: string | null
   }
 
-  export type DinosaurMaxAggregateOutputType = {
+  export type BotStatusMaxAggregateOutputType = {
     id: number | null
-    name: string | null
-    description: string | null
+    key: string | null
+    state: string | null
   }
 
-  export type DinosaurCountAggregateOutputType = {
+  export type BotStatusCountAggregateOutputType = {
     id: number
-    name: number
-    description: number
+    key: number
+    state: number
     _all: number
   }
 
 
-  export type DinosaurAvgAggregateInputType = {
+  export type BotStatusAvgAggregateInputType = {
     id?: true
   }
 
-  export type DinosaurSumAggregateInputType = {
+  export type BotStatusSumAggregateInputType = {
     id?: true
   }
 
-  export type DinosaurMinAggregateInputType = {
+  export type BotStatusMinAggregateInputType = {
     id?: true
-    name?: true
-    description?: true
+    key?: true
+    state?: true
   }
 
-  export type DinosaurMaxAggregateInputType = {
+  export type BotStatusMaxAggregateInputType = {
     id?: true
-    name?: true
-    description?: true
+    key?: true
+    state?: true
   }
 
-  export type DinosaurCountAggregateInputType = {
+  export type BotStatusCountAggregateInputType = {
     id?: true
-    name?: true
-    description?: true
+    key?: true
+    state?: true
     _all?: true
   }
 
-  export type DinosaurAggregateArgs = {
+  export type BotStatusAggregateArgs = {
     /**
-     * Filter which Dinosaur to aggregate.
+     * Filter which BotStatus to aggregate.
      */
-    where?: DinosaurWhereInput
+    where?: BotStatusWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Dinosaurs to fetch.
+     * Determine the order of BotStatuses to fetch.
      */
-    orderBy?: Enumerable<DinosaurOrderByWithRelationInput>
+    orderBy?: Enumerable<BotStatusOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: DinosaurWhereUniqueInput
+    cursor?: BotStatusWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Dinosaurs from the position of the cursor.
+     * Take `±n` BotStatuses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Dinosaurs.
+     * Skip the first `n` BotStatuses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Dinosaurs
+     * Count returned BotStatuses
     **/
-    _count?: true | DinosaurCountAggregateInputType
+    _count?: true | BotStatusCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: DinosaurAvgAggregateInputType
+    _avg?: BotStatusAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: DinosaurSumAggregateInputType
+    _sum?: BotStatusSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: DinosaurMinAggregateInputType
+    _min?: BotStatusMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: DinosaurMaxAggregateInputType
+    _max?: BotStatusMaxAggregateInputType
   }
 
-  export type GetDinosaurAggregateType<T extends DinosaurAggregateArgs> = {
-        [P in keyof T & keyof AggregateDinosaur]: P extends '_count' | 'count'
+  export type GetBotStatusAggregateType<T extends BotStatusAggregateArgs> = {
+        [P in keyof T & keyof AggregateBotStatus]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateDinosaur[P]>
-      : GetScalarType<T[P], AggregateDinosaur[P]>
+        : GetScalarType<T[P], AggregateBotStatus[P]>
+      : GetScalarType<T[P], AggregateBotStatus[P]>
   }
 
 
 
 
-  export type DinosaurGroupByArgs = {
-    where?: DinosaurWhereInput
-    orderBy?: Enumerable<DinosaurOrderByWithAggregationInput>
-    by: DinosaurScalarFieldEnum[]
-    having?: DinosaurScalarWhereWithAggregatesInput
+  export type BotStatusGroupByArgs = {
+    where?: BotStatusWhereInput
+    orderBy?: Enumerable<BotStatusOrderByWithAggregationInput>
+    by: BotStatusScalarFieldEnum[]
+    having?: BotStatusScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: DinosaurCountAggregateInputType | true
-    _avg?: DinosaurAvgAggregateInputType
-    _sum?: DinosaurSumAggregateInputType
-    _min?: DinosaurMinAggregateInputType
-    _max?: DinosaurMaxAggregateInputType
+    _count?: BotStatusCountAggregateInputType | true
+    _avg?: BotStatusAvgAggregateInputType
+    _sum?: BotStatusSumAggregateInputType
+    _min?: BotStatusMinAggregateInputType
+    _max?: BotStatusMaxAggregateInputType
   }
 
 
-  export type DinosaurGroupByOutputType = {
+  export type BotStatusGroupByOutputType = {
     id: number
-    name: string
-    description: string
-    _count: DinosaurCountAggregateOutputType | null
-    _avg: DinosaurAvgAggregateOutputType | null
-    _sum: DinosaurSumAggregateOutputType | null
-    _min: DinosaurMinAggregateOutputType | null
-    _max: DinosaurMaxAggregateOutputType | null
+    key: string
+    state: string
+    _count: BotStatusCountAggregateOutputType | null
+    _avg: BotStatusAvgAggregateOutputType | null
+    _sum: BotStatusSumAggregateOutputType | null
+    _min: BotStatusMinAggregateOutputType | null
+    _max: BotStatusMaxAggregateOutputType | null
   }
 
-  type GetDinosaurGroupByPayload<T extends DinosaurGroupByArgs> = Prisma.PrismaPromise<
+  type GetBotStatusGroupByPayload<T extends BotStatusGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickArray<DinosaurGroupByOutputType, T['by']> &
+      PickArray<BotStatusGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof DinosaurGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof BotStatusGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], DinosaurGroupByOutputType[P]>
-            : GetScalarType<T[P], DinosaurGroupByOutputType[P]>
+              : GetScalarType<T[P], BotStatusGroupByOutputType[P]>
+            : GetScalarType<T[P], BotStatusGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type DinosaurSelect = {
+  export type BotStatusSelect = {
     id?: boolean
-    name?: boolean
-    description?: boolean
+    key?: boolean
+    state?: boolean
   }
 
 
-  export type DinosaurGetPayload<S extends boolean | null | undefined | DinosaurArgs> =
+  export type BotStatusGetPayload<S extends boolean | null | undefined | BotStatusArgs> =
     S extends { select: any, include: any } ? 'Please either choose `select` or `include`' :
-    S extends true ? Dinosaur :
+    S extends true ? BotStatus :
     S extends undefined ? never :
-    S extends { include: any } & (DinosaurArgs | DinosaurFindManyArgs)
-    ? Dinosaur 
-    : S extends { select: any } & (DinosaurArgs | DinosaurFindManyArgs)
+    S extends { include: any } & (BotStatusArgs | BotStatusFindManyArgs)
+    ? BotStatus 
+    : S extends { select: any } & (BotStatusArgs | BotStatusFindManyArgs)
       ? {
     [P in TruthyKeys<S['select']>]:
-    P extends keyof Dinosaur ? Dinosaur[P] : never
+    P extends keyof BotStatus ? BotStatus[P] : never
   } 
-      : Dinosaur
+      : BotStatus
 
 
-  type DinosaurCountArgs = 
-    Omit<DinosaurFindManyArgs, 'select' | 'include'> & {
-      select?: DinosaurCountAggregateInputType | true
+  type BotStatusCountArgs = 
+    Omit<BotStatusFindManyArgs, 'select' | 'include'> & {
+      select?: BotStatusCountAggregateInputType | true
     }
 
-  export interface DinosaurDelegate<GlobalRejectSettings extends Prisma.RejectOnNotFound | Prisma.RejectPerOperation | false | undefined> {
+  export interface BotStatusDelegate<GlobalRejectSettings extends Prisma.RejectOnNotFound | Prisma.RejectPerOperation | false | undefined> {
 
     /**
-     * Find zero or one Dinosaur that matches the filter.
-     * @param {DinosaurFindUniqueArgs} args - Arguments to find a Dinosaur
+     * Find zero or one BotStatus that matches the filter.
+     * @param {BotStatusFindUniqueArgs} args - Arguments to find a BotStatus
      * @example
-     * // Get one Dinosaur
-     * const dinosaur = await prisma.dinosaur.findUnique({
+     * // Get one BotStatus
+     * const botStatus = await prisma.botStatus.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends DinosaurFindUniqueArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
-      args: SelectSubset<T, DinosaurFindUniqueArgs>
-    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findUnique', 'Dinosaur'> extends True ? Prisma__DinosaurClient<DinosaurGetPayload<T>> : Prisma__DinosaurClient<DinosaurGetPayload<T> | null, null>
+    findUnique<T extends BotStatusFindUniqueArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
+      args: SelectSubset<T, BotStatusFindUniqueArgs>
+    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findUnique', 'BotStatus'> extends True ? Prisma__BotStatusClient<BotStatusGetPayload<T>> : Prisma__BotStatusClient<BotStatusGetPayload<T> | null, null>
 
     /**
-     * Find one Dinosaur that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one BotStatus that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {DinosaurFindUniqueOrThrowArgs} args - Arguments to find a Dinosaur
+     * @param {BotStatusFindUniqueOrThrowArgs} args - Arguments to find a BotStatus
      * @example
-     * // Get one Dinosaur
-     * const dinosaur = await prisma.dinosaur.findUniqueOrThrow({
+     * // Get one BotStatus
+     * const botStatus = await prisma.botStatus.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends DinosaurFindUniqueOrThrowArgs>(
-      args?: SelectSubset<T, DinosaurFindUniqueOrThrowArgs>
-    ): Prisma__DinosaurClient<DinosaurGetPayload<T>>
+    findUniqueOrThrow<T extends BotStatusFindUniqueOrThrowArgs>(
+      args?: SelectSubset<T, BotStatusFindUniqueOrThrowArgs>
+    ): Prisma__BotStatusClient<BotStatusGetPayload<T>>
 
     /**
-     * Find the first Dinosaur that matches the filter.
+     * Find the first BotStatus that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DinosaurFindFirstArgs} args - Arguments to find a Dinosaur
+     * @param {BotStatusFindFirstArgs} args - Arguments to find a BotStatus
      * @example
-     * // Get one Dinosaur
-     * const dinosaur = await prisma.dinosaur.findFirst({
+     * // Get one BotStatus
+     * const botStatus = await prisma.botStatus.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends DinosaurFindFirstArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
-      args?: SelectSubset<T, DinosaurFindFirstArgs>
-    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'Dinosaur'> extends True ? Prisma__DinosaurClient<DinosaurGetPayload<T>> : Prisma__DinosaurClient<DinosaurGetPayload<T> | null, null>
+    findFirst<T extends BotStatusFindFirstArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
+      args?: SelectSubset<T, BotStatusFindFirstArgs>
+    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'BotStatus'> extends True ? Prisma__BotStatusClient<BotStatusGetPayload<T>> : Prisma__BotStatusClient<BotStatusGetPayload<T> | null, null>
 
     /**
-     * Find the first Dinosaur that matches the filter or
+     * Find the first BotStatus that matches the filter or
      * throw `NotFoundError` if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DinosaurFindFirstOrThrowArgs} args - Arguments to find a Dinosaur
+     * @param {BotStatusFindFirstOrThrowArgs} args - Arguments to find a BotStatus
      * @example
-     * // Get one Dinosaur
-     * const dinosaur = await prisma.dinosaur.findFirstOrThrow({
+     * // Get one BotStatus
+     * const botStatus = await prisma.botStatus.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends DinosaurFindFirstOrThrowArgs>(
-      args?: SelectSubset<T, DinosaurFindFirstOrThrowArgs>
-    ): Prisma__DinosaurClient<DinosaurGetPayload<T>>
+    findFirstOrThrow<T extends BotStatusFindFirstOrThrowArgs>(
+      args?: SelectSubset<T, BotStatusFindFirstOrThrowArgs>
+    ): Prisma__BotStatusClient<BotStatusGetPayload<T>>
 
     /**
-     * Find zero or more Dinosaurs that matches the filter.
+     * Find zero or more BotStatuses that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DinosaurFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {BotStatusFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Dinosaurs
-     * const dinosaurs = await prisma.dinosaur.findMany()
+     * // Get all BotStatuses
+     * const botStatuses = await prisma.botStatus.findMany()
      * 
-     * // Get first 10 Dinosaurs
-     * const dinosaurs = await prisma.dinosaur.findMany({ take: 10 })
+     * // Get first 10 BotStatuses
+     * const botStatuses = await prisma.botStatus.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const dinosaurWithIdOnly = await prisma.dinosaur.findMany({ select: { id: true } })
+     * const botStatusWithIdOnly = await prisma.botStatus.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends DinosaurFindManyArgs>(
-      args?: SelectSubset<T, DinosaurFindManyArgs>
-    ): Prisma.PrismaPromise<Array<DinosaurGetPayload<T>>>
+    findMany<T extends BotStatusFindManyArgs>(
+      args?: SelectSubset<T, BotStatusFindManyArgs>
+    ): Prisma.PrismaPromise<Array<BotStatusGetPayload<T>>>
 
     /**
-     * Create a Dinosaur.
-     * @param {DinosaurCreateArgs} args - Arguments to create a Dinosaur.
+     * Create a BotStatus.
+     * @param {BotStatusCreateArgs} args - Arguments to create a BotStatus.
      * @example
-     * // Create one Dinosaur
-     * const Dinosaur = await prisma.dinosaur.create({
+     * // Create one BotStatus
+     * const BotStatus = await prisma.botStatus.create({
      *   data: {
-     *     // ... data to create a Dinosaur
+     *     // ... data to create a BotStatus
      *   }
      * })
      * 
     **/
-    create<T extends DinosaurCreateArgs>(
-      args: SelectSubset<T, DinosaurCreateArgs>
-    ): Prisma__DinosaurClient<DinosaurGetPayload<T>>
+    create<T extends BotStatusCreateArgs>(
+      args: SelectSubset<T, BotStatusCreateArgs>
+    ): Prisma__BotStatusClient<BotStatusGetPayload<T>>
 
     /**
-     * Create many Dinosaurs.
-     *     @param {DinosaurCreateManyArgs} args - Arguments to create many Dinosaurs.
+     * Create many BotStatuses.
+     *     @param {BotStatusCreateManyArgs} args - Arguments to create many BotStatuses.
      *     @example
-     *     // Create many Dinosaurs
-     *     const dinosaur = await prisma.dinosaur.createMany({
+     *     // Create many BotStatuses
+     *     const botStatus = await prisma.botStatus.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends DinosaurCreateManyArgs>(
-      args?: SelectSubset<T, DinosaurCreateManyArgs>
+    createMany<T extends BotStatusCreateManyArgs>(
+      args?: SelectSubset<T, BotStatusCreateManyArgs>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Dinosaur.
-     * @param {DinosaurDeleteArgs} args - Arguments to delete one Dinosaur.
+     * Delete a BotStatus.
+     * @param {BotStatusDeleteArgs} args - Arguments to delete one BotStatus.
      * @example
-     * // Delete one Dinosaur
-     * const Dinosaur = await prisma.dinosaur.delete({
+     * // Delete one BotStatus
+     * const BotStatus = await prisma.botStatus.delete({
      *   where: {
-     *     // ... filter to delete one Dinosaur
+     *     // ... filter to delete one BotStatus
      *   }
      * })
      * 
     **/
-    delete<T extends DinosaurDeleteArgs>(
-      args: SelectSubset<T, DinosaurDeleteArgs>
-    ): Prisma__DinosaurClient<DinosaurGetPayload<T>>
+    delete<T extends BotStatusDeleteArgs>(
+      args: SelectSubset<T, BotStatusDeleteArgs>
+    ): Prisma__BotStatusClient<BotStatusGetPayload<T>>
 
     /**
-     * Update one Dinosaur.
-     * @param {DinosaurUpdateArgs} args - Arguments to update one Dinosaur.
+     * Update one BotStatus.
+     * @param {BotStatusUpdateArgs} args - Arguments to update one BotStatus.
      * @example
-     * // Update one Dinosaur
-     * const dinosaur = await prisma.dinosaur.update({
+     * // Update one BotStatus
+     * const botStatus = await prisma.botStatus.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1160,34 +1160,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends DinosaurUpdateArgs>(
-      args: SelectSubset<T, DinosaurUpdateArgs>
-    ): Prisma__DinosaurClient<DinosaurGetPayload<T>>
+    update<T extends BotStatusUpdateArgs>(
+      args: SelectSubset<T, BotStatusUpdateArgs>
+    ): Prisma__BotStatusClient<BotStatusGetPayload<T>>
 
     /**
-     * Delete zero or more Dinosaurs.
-     * @param {DinosaurDeleteManyArgs} args - Arguments to filter Dinosaurs to delete.
+     * Delete zero or more BotStatuses.
+     * @param {BotStatusDeleteManyArgs} args - Arguments to filter BotStatuses to delete.
      * @example
-     * // Delete a few Dinosaurs
-     * const { count } = await prisma.dinosaur.deleteMany({
+     * // Delete a few BotStatuses
+     * const { count } = await prisma.botStatus.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends DinosaurDeleteManyArgs>(
-      args?: SelectSubset<T, DinosaurDeleteManyArgs>
+    deleteMany<T extends BotStatusDeleteManyArgs>(
+      args?: SelectSubset<T, BotStatusDeleteManyArgs>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Dinosaurs.
+     * Update zero or more BotStatuses.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DinosaurUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {BotStatusUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Dinosaurs
-     * const dinosaur = await prisma.dinosaur.updateMany({
+     * // Update many BotStatuses
+     * const botStatus = await prisma.botStatus.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1197,59 +1197,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends DinosaurUpdateManyArgs>(
-      args: SelectSubset<T, DinosaurUpdateManyArgs>
+    updateMany<T extends BotStatusUpdateManyArgs>(
+      args: SelectSubset<T, BotStatusUpdateManyArgs>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Dinosaur.
-     * @param {DinosaurUpsertArgs} args - Arguments to update or create a Dinosaur.
+     * Create or update one BotStatus.
+     * @param {BotStatusUpsertArgs} args - Arguments to update or create a BotStatus.
      * @example
-     * // Update or create a Dinosaur
-     * const dinosaur = await prisma.dinosaur.upsert({
+     * // Update or create a BotStatus
+     * const botStatus = await prisma.botStatus.upsert({
      *   create: {
-     *     // ... data to create a Dinosaur
+     *     // ... data to create a BotStatus
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Dinosaur we want to update
+     *     // ... the filter for the BotStatus we want to update
      *   }
      * })
     **/
-    upsert<T extends DinosaurUpsertArgs>(
-      args: SelectSubset<T, DinosaurUpsertArgs>
-    ): Prisma__DinosaurClient<DinosaurGetPayload<T>>
+    upsert<T extends BotStatusUpsertArgs>(
+      args: SelectSubset<T, BotStatusUpsertArgs>
+    ): Prisma__BotStatusClient<BotStatusGetPayload<T>>
 
     /**
-     * Count the number of Dinosaurs.
+     * Count the number of BotStatuses.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DinosaurCountArgs} args - Arguments to filter Dinosaurs to count.
+     * @param {BotStatusCountArgs} args - Arguments to filter BotStatuses to count.
      * @example
-     * // Count the number of Dinosaurs
-     * const count = await prisma.dinosaur.count({
+     * // Count the number of BotStatuses
+     * const count = await prisma.botStatus.count({
      *   where: {
-     *     // ... the filter for the Dinosaurs we want to count
+     *     // ... the filter for the BotStatuses we want to count
      *   }
      * })
     **/
-    count<T extends DinosaurCountArgs>(
-      args?: Subset<T, DinosaurCountArgs>,
+    count<T extends BotStatusCountArgs>(
+      args?: Subset<T, BotStatusCountArgs>,
     ): Prisma.PrismaPromise<
       T extends _Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], DinosaurCountAggregateOutputType>
+          : GetScalarType<T['select'], BotStatusCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Dinosaur.
+     * Allows you to perform aggregations operations on a BotStatus.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DinosaurAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {BotStatusAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1269,13 +1269,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends DinosaurAggregateArgs>(args: Subset<T, DinosaurAggregateArgs>): Prisma.PrismaPromise<GetDinosaurAggregateType<T>>
+    aggregate<T extends BotStatusAggregateArgs>(args: Subset<T, BotStatusAggregateArgs>): Prisma.PrismaPromise<GetBotStatusAggregateType<T>>
 
     /**
-     * Group by Dinosaur.
+     * Group by BotStatus.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DinosaurGroupByArgs} args - Group by arguments.
+     * @param {BotStatusGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1290,14 +1290,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends DinosaurGroupByArgs,
+      T extends BotStatusGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DinosaurGroupByArgs['orderBy'] }
-        : { orderBy?: DinosaurGroupByArgs['orderBy'] },
+        ? { orderBy: BotStatusGroupByArgs['orderBy'] }
+        : { orderBy?: BotStatusGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends TupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1346,17 +1346,17 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, DinosaurGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDinosaurGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, BotStatusGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBotStatusGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Dinosaur.
+   * The delegate class that acts as a "Promise-like" for BotStatus.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export class Prisma__DinosaurClient<T, Null = never> implements Prisma.PrismaPromise<T> {
+  export class Prisma__BotStatusClient<T, Null = never> implements Prisma.PrismaPromise<T> {
     private readonly _dmmf;
     private readonly _queryType;
     private readonly _rootField;
@@ -1400,23 +1400,23 @@ export namespace Prisma {
   // Custom InputTypes
 
   /**
-   * Dinosaur base type for findUnique actions
+   * BotStatus base type for findUnique actions
    */
-  export type DinosaurFindUniqueArgsBase = {
+  export type BotStatusFindUniqueArgsBase = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * Filter, which Dinosaur to fetch.
+     * Filter, which BotStatus to fetch.
      */
-    where: DinosaurWhereUniqueInput
+    where: BotStatusWhereUniqueInput
   }
 
   /**
-   * Dinosaur findUnique
+   * BotStatus findUnique
    */
-  export interface DinosaurFindUniqueArgs extends DinosaurFindUniqueArgsBase {
+  export interface BotStatusFindUniqueArgs extends BotStatusFindUniqueArgsBase {
    /**
     * Throw an Error if query returns no results
     * @deprecated since 4.0.0: use `findUniqueOrThrow` method instead
@@ -1426,68 +1426,68 @@ export namespace Prisma {
       
 
   /**
-   * Dinosaur findUniqueOrThrow
+   * BotStatus findUniqueOrThrow
    */
-  export type DinosaurFindUniqueOrThrowArgs = {
+  export type BotStatusFindUniqueOrThrowArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * Filter, which Dinosaur to fetch.
+     * Filter, which BotStatus to fetch.
      */
-    where: DinosaurWhereUniqueInput
+    where: BotStatusWhereUniqueInput
   }
 
 
   /**
-   * Dinosaur base type for findFirst actions
+   * BotStatus base type for findFirst actions
    */
-  export type DinosaurFindFirstArgsBase = {
+  export type BotStatusFindFirstArgsBase = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * Filter, which Dinosaur to fetch.
+     * Filter, which BotStatus to fetch.
      */
-    where?: DinosaurWhereInput
+    where?: BotStatusWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Dinosaurs to fetch.
+     * Determine the order of BotStatuses to fetch.
      */
-    orderBy?: Enumerable<DinosaurOrderByWithRelationInput>
+    orderBy?: Enumerable<BotStatusOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Dinosaurs.
+     * Sets the position for searching for BotStatuses.
      */
-    cursor?: DinosaurWhereUniqueInput
+    cursor?: BotStatusWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Dinosaurs from the position of the cursor.
+     * Take `±n` BotStatuses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Dinosaurs.
+     * Skip the first `n` BotStatuses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Dinosaurs.
+     * Filter by unique combinations of BotStatuses.
      */
-    distinct?: Enumerable<DinosaurScalarFieldEnum>
+    distinct?: Enumerable<BotStatusScalarFieldEnum>
   }
 
   /**
-   * Dinosaur findFirst
+   * BotStatus findFirst
    */
-  export interface DinosaurFindFirstArgs extends DinosaurFindFirstArgsBase {
+  export interface BotStatusFindFirstArgs extends BotStatusFindFirstArgsBase {
    /**
     * Throw an Error if query returns no results
     * @deprecated since 4.0.0: use `findFirstOrThrow` method instead
@@ -1497,208 +1497,208 @@ export namespace Prisma {
       
 
   /**
-   * Dinosaur findFirstOrThrow
+   * BotStatus findFirstOrThrow
    */
-  export type DinosaurFindFirstOrThrowArgs = {
+  export type BotStatusFindFirstOrThrowArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * Filter, which Dinosaur to fetch.
+     * Filter, which BotStatus to fetch.
      */
-    where?: DinosaurWhereInput
+    where?: BotStatusWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Dinosaurs to fetch.
+     * Determine the order of BotStatuses to fetch.
      */
-    orderBy?: Enumerable<DinosaurOrderByWithRelationInput>
+    orderBy?: Enumerable<BotStatusOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Dinosaurs.
+     * Sets the position for searching for BotStatuses.
      */
-    cursor?: DinosaurWhereUniqueInput
+    cursor?: BotStatusWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Dinosaurs from the position of the cursor.
+     * Take `±n` BotStatuses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Dinosaurs.
+     * Skip the first `n` BotStatuses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Dinosaurs.
+     * Filter by unique combinations of BotStatuses.
      */
-    distinct?: Enumerable<DinosaurScalarFieldEnum>
+    distinct?: Enumerable<BotStatusScalarFieldEnum>
   }
 
 
   /**
-   * Dinosaur findMany
+   * BotStatus findMany
    */
-  export type DinosaurFindManyArgs = {
+  export type BotStatusFindManyArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * Filter, which Dinosaurs to fetch.
+     * Filter, which BotStatuses to fetch.
      */
-    where?: DinosaurWhereInput
+    where?: BotStatusWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Dinosaurs to fetch.
+     * Determine the order of BotStatuses to fetch.
      */
-    orderBy?: Enumerable<DinosaurOrderByWithRelationInput>
+    orderBy?: Enumerable<BotStatusOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Dinosaurs.
+     * Sets the position for listing BotStatuses.
      */
-    cursor?: DinosaurWhereUniqueInput
+    cursor?: BotStatusWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Dinosaurs from the position of the cursor.
+     * Take `±n` BotStatuses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Dinosaurs.
+     * Skip the first `n` BotStatuses.
      */
     skip?: number
-    distinct?: Enumerable<DinosaurScalarFieldEnum>
+    distinct?: Enumerable<BotStatusScalarFieldEnum>
   }
 
 
   /**
-   * Dinosaur create
+   * BotStatus create
    */
-  export type DinosaurCreateArgs = {
+  export type BotStatusCreateArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * The data needed to create a Dinosaur.
+     * The data needed to create a BotStatus.
      */
-    data: XOR<DinosaurCreateInput, DinosaurUncheckedCreateInput>
+    data: XOR<BotStatusCreateInput, BotStatusUncheckedCreateInput>
   }
 
 
   /**
-   * Dinosaur createMany
+   * BotStatus createMany
    */
-  export type DinosaurCreateManyArgs = {
+  export type BotStatusCreateManyArgs = {
     /**
-     * The data used to create many Dinosaurs.
+     * The data used to create many BotStatuses.
      */
-    data: Enumerable<DinosaurCreateManyInput>
+    data: Enumerable<BotStatusCreateManyInput>
     skipDuplicates?: boolean
   }
 
 
   /**
-   * Dinosaur update
+   * BotStatus update
    */
-  export type DinosaurUpdateArgs = {
+  export type BotStatusUpdateArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * The data needed to update a Dinosaur.
+     * The data needed to update a BotStatus.
      */
-    data: XOR<DinosaurUpdateInput, DinosaurUncheckedUpdateInput>
+    data: XOR<BotStatusUpdateInput, BotStatusUncheckedUpdateInput>
     /**
-     * Choose, which Dinosaur to update.
+     * Choose, which BotStatus to update.
      */
-    where: DinosaurWhereUniqueInput
+    where: BotStatusWhereUniqueInput
   }
 
 
   /**
-   * Dinosaur updateMany
+   * BotStatus updateMany
    */
-  export type DinosaurUpdateManyArgs = {
+  export type BotStatusUpdateManyArgs = {
     /**
-     * The data used to update Dinosaurs.
+     * The data used to update BotStatuses.
      */
-    data: XOR<DinosaurUpdateManyMutationInput, DinosaurUncheckedUpdateManyInput>
+    data: XOR<BotStatusUpdateManyMutationInput, BotStatusUncheckedUpdateManyInput>
     /**
-     * Filter which Dinosaurs to update
+     * Filter which BotStatuses to update
      */
-    where?: DinosaurWhereInput
+    where?: BotStatusWhereInput
   }
 
 
   /**
-   * Dinosaur upsert
+   * BotStatus upsert
    */
-  export type DinosaurUpsertArgs = {
+  export type BotStatusUpsertArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * The filter to search for the Dinosaur to update in case it exists.
+     * The filter to search for the BotStatus to update in case it exists.
      */
-    where: DinosaurWhereUniqueInput
+    where: BotStatusWhereUniqueInput
     /**
-     * In case the Dinosaur found by the `where` argument doesn't exist, create a new Dinosaur with this data.
+     * In case the BotStatus found by the `where` argument doesn't exist, create a new BotStatus with this data.
      */
-    create: XOR<DinosaurCreateInput, DinosaurUncheckedCreateInput>
+    create: XOR<BotStatusCreateInput, BotStatusUncheckedCreateInput>
     /**
-     * In case the Dinosaur was found with the provided `where` argument, update it with this data.
+     * In case the BotStatus was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<DinosaurUpdateInput, DinosaurUncheckedUpdateInput>
+    update: XOR<BotStatusUpdateInput, BotStatusUncheckedUpdateInput>
   }
 
 
   /**
-   * Dinosaur delete
+   * BotStatus delete
    */
-  export type DinosaurDeleteArgs = {
+  export type BotStatusDeleteArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
     /**
-     * Filter which Dinosaur to delete.
+     * Filter which BotStatus to delete.
      */
-    where: DinosaurWhereUniqueInput
+    where: BotStatusWhereUniqueInput
   }
 
 
   /**
-   * Dinosaur deleteMany
+   * BotStatus deleteMany
    */
-  export type DinosaurDeleteManyArgs = {
+  export type BotStatusDeleteManyArgs = {
     /**
-     * Filter which Dinosaurs to delete
+     * Filter which BotStatuses to delete
      */
-    where?: DinosaurWhereInput
+    where?: BotStatusWhereInput
   }
 
 
   /**
-   * Dinosaur without action
+   * BotStatus without action
    */
-  export type DinosaurArgs = {
+  export type BotStatusArgs = {
     /**
-     * Select specific fields to fetch from the Dinosaur
+     * Select specific fields to fetch from the BotStatus
      */
-    select?: DinosaurSelect | null
+    select?: BotStatusSelect | null
   }
 
 
@@ -2614,13 +2614,13 @@ export namespace Prisma {
   // Based on
   // https://github.com/microsoft/TypeScript/issues/3192#issuecomment-261720275
 
-  export const DinosaurScalarFieldEnum: {
+  export const BotStatusScalarFieldEnum: {
     id: 'id',
-    name: 'name',
-    description: 'description'
+    key: 'key',
+    state: 'state'
   };
 
-  export type DinosaurScalarFieldEnum = (typeof DinosaurScalarFieldEnum)[keyof typeof DinosaurScalarFieldEnum]
+  export type BotStatusScalarFieldEnum = (typeof BotStatusScalarFieldEnum)[keyof typeof BotStatusScalarFieldEnum]
 
 
   export const PageViewsScalarFieldEnum: {
@@ -2655,44 +2655,44 @@ export namespace Prisma {
    */
 
 
-  export type DinosaurWhereInput = {
-    AND?: Enumerable<DinosaurWhereInput>
-    OR?: Enumerable<DinosaurWhereInput>
-    NOT?: Enumerable<DinosaurWhereInput>
+  export type BotStatusWhereInput = {
+    AND?: Enumerable<BotStatusWhereInput>
+    OR?: Enumerable<BotStatusWhereInput>
+    NOT?: Enumerable<BotStatusWhereInput>
     id?: IntFilter | number
-    name?: StringFilter | string
-    description?: StringFilter | string
+    key?: StringFilter | string
+    state?: StringFilter | string
   }
 
-  export type DinosaurOrderByWithRelationInput = {
+  export type BotStatusOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
+    key?: SortOrder
+    state?: SortOrder
   }
 
-  export type DinosaurWhereUniqueInput = {
+  export type BotStatusWhereUniqueInput = {
     id?: number
-    name?: string
+    key?: string
   }
 
-  export type DinosaurOrderByWithAggregationInput = {
+  export type BotStatusOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    _count?: DinosaurCountOrderByAggregateInput
-    _avg?: DinosaurAvgOrderByAggregateInput
-    _max?: DinosaurMaxOrderByAggregateInput
-    _min?: DinosaurMinOrderByAggregateInput
-    _sum?: DinosaurSumOrderByAggregateInput
+    key?: SortOrder
+    state?: SortOrder
+    _count?: BotStatusCountOrderByAggregateInput
+    _avg?: BotStatusAvgOrderByAggregateInput
+    _max?: BotStatusMaxOrderByAggregateInput
+    _min?: BotStatusMinOrderByAggregateInput
+    _sum?: BotStatusSumOrderByAggregateInput
   }
 
-  export type DinosaurScalarWhereWithAggregatesInput = {
-    AND?: Enumerable<DinosaurScalarWhereWithAggregatesInput>
-    OR?: Enumerable<DinosaurScalarWhereWithAggregatesInput>
-    NOT?: Enumerable<DinosaurScalarWhereWithAggregatesInput>
+  export type BotStatusScalarWhereWithAggregatesInput = {
+    AND?: Enumerable<BotStatusScalarWhereWithAggregatesInput>
+    OR?: Enumerable<BotStatusScalarWhereWithAggregatesInput>
+    NOT?: Enumerable<BotStatusScalarWhereWithAggregatesInput>
     id?: IntWithAggregatesFilter | number
-    name?: StringWithAggregatesFilter | string
-    description?: StringWithAggregatesFilter | string
+    key?: StringWithAggregatesFilter | string
+    state?: StringWithAggregatesFilter | string
   }
 
   export type PageViewsWhereInput = {
@@ -2735,43 +2735,43 @@ export namespace Prisma {
     views?: IntWithAggregatesFilter | number
   }
 
-  export type DinosaurCreateInput = {
-    name: string
-    description: string
+  export type BotStatusCreateInput = {
+    key: string
+    state: string
   }
 
-  export type DinosaurUncheckedCreateInput = {
+  export type BotStatusUncheckedCreateInput = {
     id?: number
-    name: string
-    description: string
+    key: string
+    state: string
   }
 
-  export type DinosaurUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+  export type BotStatusUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    state?: StringFieldUpdateOperationsInput | string
   }
 
-  export type DinosaurUncheckedUpdateInput = {
+  export type BotStatusUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    state?: StringFieldUpdateOperationsInput | string
   }
 
-  export type DinosaurCreateManyInput = {
+  export type BotStatusCreateManyInput = {
     id?: number
-    name: string
-    description: string
+    key: string
+    state: string
   }
 
-  export type DinosaurUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+  export type BotStatusUpdateManyMutationInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    state?: StringFieldUpdateOperationsInput | string
   }
 
-  export type DinosaurUncheckedUpdateManyInput = {
+  export type BotStatusUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    state?: StringFieldUpdateOperationsInput | string
   }
 
   export type PageViewsCreateInput = {
@@ -2838,29 +2838,29 @@ export namespace Prisma {
     not?: NestedStringFilter | string
   }
 
-  export type DinosaurCountOrderByAggregateInput = {
+  export type BotStatusCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
+    key?: SortOrder
+    state?: SortOrder
   }
 
-  export type DinosaurAvgOrderByAggregateInput = {
+  export type BotStatusAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type DinosaurMaxOrderByAggregateInput = {
+  export type BotStatusMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
+    key?: SortOrder
+    state?: SortOrder
   }
 
-  export type DinosaurMinOrderByAggregateInput = {
+  export type BotStatusMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
+    key?: SortOrder
+    state?: SortOrder
   }
 
-  export type DinosaurSumOrderByAggregateInput = {
+  export type BotStatusSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
