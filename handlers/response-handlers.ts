@@ -2,7 +2,7 @@ import { RouteParams, RouterContext } from "https://deno.land/x/oak@v11.1.0/rout
 
 type Context = RouterContext<string, RouteParams<any>, any>
 
-export const createGetResponse = (ctx: Context, data: any) => {
+export const createResponse = (ctx: any, data: any) => {
     if (data) {
         ctx.response.body = {
             message: 'success',
